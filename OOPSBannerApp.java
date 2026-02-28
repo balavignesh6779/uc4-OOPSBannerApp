@@ -1,78 +1,32 @@
-import java.util.*;
-
-// Step 4: Class to store character pattern
-class LetterPattern {
-    private String[] pattern;
-
-    public LetterPattern(String[] pattern) {
-        this.pattern = pattern;
-    }
-
-    public String[] getPattern() {
-        return pattern;
-    }
-}
-
+/**
+ * OOPSBannerApp UC4 – OOPS Banner Application (Use Case 4)
+ *
+ * This class extends UC3 by storing banner lines in a String array and
+ * using a loop to print them, improving modularity and reusability.
+ *
+ * @author Developer
+ * @version 4.0
+ */
 public class OOPSBannerApp {
-
-    // Step 5: Map to store letter patterns
-    static Map<Character, LetterPattern> letterMap = new HashMap<>();
 
     public static void main(String[] args) {
 
-        // Step 1: Simple display
-        System.out.println("Simple Output:");
-        System.out.println("OOPS\n");
+        // 1. Create a String array to store all lines of the banner
+        String[] bannerLines = {
+            String.join(" ","   ****    ","   ****    ","**********  ","**********"),
+            String.join(" "," **     ** "," **     ** ","*********** ","**********"),
+            String.join(" ","**       **","**       **","**        **","**        "),
+            String.join(" ","**       **","**       **","**        **","**        "),
+            String.join(" ","**       **","**       **","**       ** ","**********"),
+            String.join(" ","**       **","**       **","**********  ","**********"),
+            String.join(" ","**       **","**       **","***         ","        **"),
+            String.join(" "," **     ** "," **     ** ","***         ","        **"),
+            String.join(" ","   ****    ","   ****    ","***         ","**********"),
+        };
 
-        // Initialize patterns
-        initializePatterns();
-
-        // Step 2 & 3 & 4 & 5: Banner display
-        System.out.println("Banner Output:");
-        displayBanner("OOPS");
-    }
-
-    // Initialize patterns and store in Map
-    public static void initializePatterns() {
-
-        letterMap.put('O', new LetterPattern(new String[]{
-                " *** ",
-                "*   *",
-                "*   *",
-                "*   *",
-                " *** "
-        }));
-
-        letterMap.put('P', new LetterPattern(new String[]{
-                "**** ",
-                "*   *",
-                "**** ",
-                "*    ",
-                "*    "
-        }));
-
-        letterMap.put('S', new LetterPattern(new String[]{
-                " ****",
-                "*    ",
-                " *** ",
-                "    *",
-                "**** "
-        }));
-    }
-
-    // Step 3: Function to display banner
-    public static void displayBanner(String text) {
-
-        int height = 5;
-
-        for (int i = 0; i < height; i++) {
-            for (char ch : text.toCharArray()) {
-                LetterPattern letter = letterMap.get(ch);
-                if (letter != null) {
-                    System.out.print(letter.getPattern()[i] + "  ");
-                }
-            }
-            System.out.println();
+        // 2. Use a for-each loop to print each element sequentially
+        for (String line : bannerLines) {
+            System.out.println(line);
         }
     }
 }
